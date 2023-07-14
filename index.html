@@ -5,67 +5,74 @@
     <meta charset="UTF-8" />
     <title>JotaTools</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link href="libs/bootstrap.min.css" rel="stylesheet">
 </head>
 
-<body>
+<body style="height: 100%; min-height: 100vh; margin: 0; padding: 0;">
     <div class="container text-center">
         <h1>JotaTools</h1>
         <p id="jqtest">Loading...</p>
-        <h2>Import formatter</h2>
-        <p>For reassembling from the MUD output.</p>
-        <div class="row g-2">
-            <div class="col-6">
-                <label for="rawMUDContent" class="form-label">Raw</label>
-                <textarea id="rawMUDContent" class="form-control" rows="9" placeholder="Paste ifMUD output here"></textarea>
-            </div>
-            <div class="col-6">
-                <label for="formattedMUDContent" class="form-label">Reformatted</label>
-                <textarea id="formattedMUDContent" class="form-control font-monospace" rows="9" placeholder="Formatted code will appear here"></textarea>
-            </div>
-        </div>
-        <div class="row g-2">
-            <div class="col-3">
-                <button type="button" id="copyMUDContentButton" class="btn btn-primary">Copy</button>
-                <br><br>
-            </div>
-            <div class="col-3">
-                <button type="submit" id="formatMUDContentButton" class="btn btn-success">Format</button>
-                <br><br>
-            </div>
-            <div class="col-3">
-                <button type="submit" id="condenseFormattedContentButton" class="btn btn-success">Condense</button>
-                <br><br>
-            </div>
-            <div class="col-3">
-                <button type="button" id="copyFormattedContentButton" class="btn btn-primary">Copy</button>
-                <br><br>
-            </div>
-        </div>
-        <div class="row g-2">
-            <div class="col-6">
+        <div class="row gy-6 justify-content-center">
+            <div class="col-8 col-lg-4 col-md-6 col-sm-6">
                 <label for="objectReference" class="form-label">Object name/dbref</label>
                 <input type="text" class="form-control" id="objectReference" placeholder="#00000">
             </div>
-            <div class="col-6">
+            <div class="col-4 col-lg-2 col-md-2 col-sm-4">
+                <label for="semicolonWrapper" class="form-label">Joiner</label>
+                <input type="text" class="form-control" id="semicolonWrapper" placeholder=";" value=";">
+            </div>
+        </div>
+        <div class="row gy-6 justify-content-center">
+            <div class="col-12 col-lg-6 col-md-8 col-sm-10">
                 <label for="fieldName" class="form-label">Field name</label>
                 <input type="text" class="form-control" id="fieldName" placeholder="fieldname">
+            </div>
+        </div>
+        <div class="row gy-6 justify-content-center">
+            <div class="col-12 col-lg-6 col-md-8 col-sm-10">
+                <label for="rawMUDContent" class="form-label">Raw</label>
+                <input type="text" id="rawMUDContent" class="form-control"placeholder="ifMUD output here"></textarea>
+            </div>
+        </div>
+        <div class="row gy-6 justify-content-center">
+            <div class="col-4 col-lg-2 col-md-3 col-sm-3">
+                <button type="button" id="copyMUDContentButton" class="btn btn-dark">Copy plain</button>
+                <br><br>
+            </div>
+            <div class="col-4 col-lg-2 col-md-3 col-sm-3">
+                <button type="button" id="copyMUDContentWithFieldButton" class="btn btn-dark">Copy field</button>
+                <br><br>
+            </div>
+            <div class="col-4 col-lg-2 col-md-3 col-sm-3">
+                <button type="submit" id="formatMUDContentButton" class="btn btn-secondary">Format</button>
+                <br><br>
+            </div>
+        </div>
+        <div class="row gy-6 justify-content-center">
+            <div class="col-12 col-lg-6 col-md-8 col-sm-10">
+                <label for="formattedMUDContent" class="form-label">Reformatted</label>
+            </div>
+        </div>
+        <div class="row gy-6 justify-content-center">
+            <div class="col-6 col-lg-3 col-md-4 col-sm-5">
+                <button type="button" id="copyFormattedContentButton" class="btn btn-dark">Copy</button>
+            </div>
+            <div class="col-6 col-lg-3 col-md-4 col-sm-5">
+                <button type="submit" id="condenseFormattedContentButton" class="btn btn-secondary">Condense</button>
+            </div>
+        </div>
+        <div class="row gy-6 justify-content-center">
+            <div class="col-12 col-lg-6 col-md-8 col-sm-10">
+                <textarea id="formattedMUDContent" class="form-control font-monospace" rows="16" placeholder="Formatted code here"></textarea>
             </div>
         </div>
     </div>
 
     <!-- Final includes -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
-        integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
-        crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="libs/bootstrap.bundle.min.js"></script>
+    <!--<script src="libs/popper.min.js"></script>-->
+    <!--<script src="libs/bootstrap.min.js"></script>-->
+    <script src="libs/jquery-3.7.0.min.js"></script>
 
     <!-- My includes -->
     <script src="js/main.js"></script>
